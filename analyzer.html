@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Analyzer | CyberLink Sentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="components/back-button.js"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  <custom-navbar active="analyzer"></custom-navbar>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+      <back-button class="mb-6"></back-button>
+      
+      <div class="bg-gray-800 rounded-xl p-6 mb-8">
+        <h1 class="text-2xl font-bold mb-2">URL Analyzer</h1>
+        <p class="text-gray-400 mb-6">Enter a link to check for potential threats</p>
+        
+        <form id="urlForm" class="space-y-4">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input 
+              type="url" 
+              id="urlInput" 
+              placeholder="https://example.com" 
+              class="flex-grow bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            >
+            <button type="submit" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors">
+              Analyze
+            </button>
+          </div>
+          <p class="text-sm text-gray-500">Supports http, https, and domains without scheme</p>
+        </form>
+      </div>
+
+      <div id="resultContainer" class="bg-gray-800 rounded-xl p-6 hidden">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold">Analysis Result</h2>
+          <span id="riskEmoji" class="text-2xl"></span>
+        </div>
+
+        <div class="mb-6">
+          <div class="flex justify-between text-sm text-gray-400 mb-1">
+            <span>Low Risk</span>
+            <span>High Risk</span>
+          </div>
+          <div class="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+            <div id="riskBar" class="h-full transition-all duration-500"></div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-sm font-medium text-gray-400 mb-1">URL</h3>
+            <p id="checkedUrl" class="font-mono break-all"></p>
+          </div>
+          
+          <div>
+            <h3 class="text-sm font-medium text-gray-400 mb-1">Safety Status</h3>
+            <p id="safetyStatus" class="font-semibold"></p>
+          </div>
+          
+          <div>
+            <h3 class="text-sm font-medium text-gray-400 mb-2">Details</h3>
+            <ul id="safetyDetails" class="space-y-2 text-gray-300"></ul>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-4">
+            <button id="copyResultBtn" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">
+              Copy Result
+            </button>
+            <a id="openUrlBtn" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">
+              Open URL (at your own risk)
+            </a>
+          </div>
+
+          <div id="tipsSection" class="pt-6 mt-6 border-t border-gray-700">
+            <h3 class="flex items-center gap-2 text-sm
+</body>
+</html>
