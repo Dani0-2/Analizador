@@ -1,60 +1,93 @@
+<!-- /index.html (Landing minimalista, sin imágenes) -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CyberLink Sentinel — URL Analyzer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberLink Sentinel — Analizador de URLs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <script defer src="https://unpkg.com/feather-icons"></script>
+  <script defer src="components/navbar.js"></script>
+  <script defer src="components/footer.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
-  <custom-navbar active="home"></custom-navbar>
+<body class="bg-cyber-dark min-h-screen flex flex-col" style="background-color: var(--cyber-dark);">
+  <custom-navbar active="inicio"></custom-navbar>
 
-  <main class="flex-grow container mx-auto px-4 py-12">
-    <section class="max-w-4xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full mb-6">
-        <i data-feather="shield"></i>
-        <span class="text-sm font-medium">URL Security Scanner</span>
+  <main class="flex-grow">
+    <section class="container mx-auto px-4 py-16">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 text-indigo-300">
+          <i data-feather="shield"></i>
+          <span class="tracking-wide text-sm uppercase">Seguridad de enlaces</span>
+        </div>
+        <h1 class="mt-3 text-4xl md:text-5xl font-bold text-white">
+          CyberLink Sentinel
+        </h1>
+        <p class="mt-3 text-lg text-gray-300">
+          Analiza URLs con señales heurísticas y buenas prácticas para reducir el riesgo de phishing y malware.
+        </p>
+
+        <ul class="mt-8 space-y-3 text-gray-300">
+          <li class="flex items-start gap-3">
+            <i data-feather="aperture" aria-hidden="true"></i>
+            <span>Normalización de enlaces y validación de formato.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-feather="activity" aria-hidden="true"></i>
+            <span>Heurística: longitud, subdominios, IPs, unicode, palabras clave.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-feather="lock" aria-hidden="true"></i>
+            <span>Privacidad: análisis local por defecto.</span>
+          </li>
+        </ul>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="verificador.html"
+             class="btn-primary inline-flex items-center">
+            Comenzar análisis
+            <i data-feather="arrow-right" class="ml-2"></i>
+          </a>
+          <a href="#como-funciona" class="btn-ghost inline-flex items-center">
+            ¿Cómo funciona?
+            <i data-feather="chevron-down" class="ml-1"></i>
+          </a>
+        </div>
       </div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Protect Yourself From<br>Malicious Links</h1>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-        Analyze URLs for phishing attempts, malware, and suspicious patterns before clicking.
-      </p>
-      <a href="analyzer.html" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors">
-        Start Analyzing
-        <i data-feather="arrow-right" class="ml-2"></i>
-      </a>
     </section>
 
-    <section class="mt-20 grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div class="bg-gray-800 p-6 rounded-xl">
-        <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
-          <i data-feather="link" class="text-blue-400"></i>
+    <section id="como-funciona" class="container mx-auto px-4 pb-16">
+      <h2 class="text-2xl font-semibold text-white mb-4">Cómo funciona</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="card">
+          <div class="flex items-center gap-2 text-gray-200">
+            <i data-feather="sliders"></i><h3 class="font-semibold">Normalización</h3>
+          </div>
+          <p class="text-gray-400 mt-1">Añade esquema, valida y limpia redirecciones simples.</p>
         </div>
-        <h3 class="text-xl font-semibold mb-2">URL Analysis</h3>
-        <p class="text-gray-400">Examine link structure, domain reputation, and redirect patterns.</p>
+        <div class="card">
+          <div class="flex items-center gap-2 text-gray-200">
+            <i data-feather="cpu"></i><h3 class="font-semibold">Heurística</h3>
+          </div>
+          <p class="text-gray-400 mt-1">Evalúa estructura y patrones de riesgo.</p>
+        </div>
+        <div class="card">
+          <div class="flex items-center gap-2 text-gray-200">
+            <i data-feather="book-open"></i><h3 class="font-semibold">Consejos</h3>
+          </div>
+          <p class="text-gray-400 mt-1">Buenas prácticas dinámicas según puntaje.</p>
+        </div>
       </div>
-      
-      <div class="bg-gray-800 p-6 rounded-xl">
-        <div class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
-          <i data-feather="alert-triangle" class="text-purple-400"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Threat Detection</h3>
-        <p class="text-gray-400">Identify phishing attempts, malware distribution, and scam links.</p>
-      </div>
-      
-      <div class="bg-gray-800 p-6 rounded-xl">
-        <div class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
-          <i data-feather="lock" class="text-green-400"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Privacy Focused</h3>
-        <p class="text-gray-400">All analysis happens locally in your browser for maximum privacy.</p>
+
+      <div class="mt-8">
+        <a href="verificador.html" class="btn-primary inline-flex items-center">
+          Usar el verificador
+          <i data-feather="arrow-right" class="ml-2"></i>
+        </a>
       </div>
     </section>
   </main>
@@ -62,7 +95,314 @@
   <custom-footer></custom-footer>
 
   <script>
-    feather.replace();
+    document.addEventListener('DOMContentLoaded', () => feather.replace());
   </script>
 </body>
 </html>
+
+<!-- /verificador.html (Minimalista, sin imágenes) -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberLink Sentinel - Verificador de URLs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/feather-icons"></script>
+  <script defer src="components/navbar.js"></script>
+  <script defer src="components/footer.js"></script>
+</head>
+<body class="bg-cyber-dark min-h-screen flex flex-col" style="background-color: var(--cyber-dark);">
+  <custom-navbar active="verificador"></custom-navbar>
+
+  <main class="flex-grow container mx-auto px-4 py-10">
+    <back-button class="mb-6"></back-button>
+
+    <div class="max-w-3xl mx-auto">
+      <header class="mb-8">
+        <div class="inline-flex items-center gap-2 text-indigo-300">
+          <i data-feather="link"></i>
+          <span class="tracking-wide text-sm uppercase">Analizador</span>
+        </div>
+        <h1 class="mt-2 text-3xl font-bold text-white">Verificador de URL</h1>
+        <p class="text-gray-400">Ingresa un enlace para evaluar su riesgo.</p>
+      </header>
+
+      <section class="panel mb-8">
+        <form id="urlForm" class="space-y-3">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              type="url"
+              id="urlInput"
+              placeholder="https://ejemplo.com"
+              class="input"
+              required
+              aria-label="URL a analizar"
+            />
+            <button type="submit" id="analyzeBtn" class="btn-primary">Analizar</button>
+            <button type="button" id="clearBtn" class="btn-ghost" aria-label="Limpiar">Limpiar</button>
+          </div>
+          <p id="inputHint" class="hint">Acepta http(s) y dominios sin esquema (se completan automáticamente).</p>
+        </form>
+      </section>
+
+      <section id="resultContainer" class="panel hidden">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <i data-feather="shield"></i>
+            <h2 class="text-lg font-semibold text-gray-100">Resultado</h2>
+          </div>
+          <span id="riskEmoji" class="text-2xl" aria-hidden="true"></span>
+        </div>
+
+        <div class="mb-5">
+          <div class="flex justify-between text-xs text-gray-400 mb-1">
+            <span>Bajo</span><span>Alto</span>
+          </div>
+          <div class="w-full h-2 rounded bg-gray-800">
+            <div id="riskBar" class="h-2 rounded transition-all duration-500" style="width:0%"></div>
+          </div>
+        </div>
+
+        <div class="grid gap-3">
+          <div>
+            <h3 class="label">URL:</h3>
+            <p id="checkedUrl" class="value"></p>
+          </div>
+          <div>
+            <h3 class="label">Estado:</h3>
+            <p id="safetyStatus" class="value font-semibold"></p>
+          </div>
+          <div>
+            <h3 class="label">Detalles:</h3>
+            <ul id="safetyDetails" class="list-disc list-inside text-gray-300 space-y-1"></ul>
+          </div>
+
+          <div class="flex gap-2 mt-1">
+            <button id="copyResultBtn" class="btn-ghost">Copiar resultado</button>
+            <a id="openUrlBtn" class="btn-ghost" target="_blank" rel="noreferrer noopener">Abrir (bajo tu responsabilidad)</a>
+          </div>
+
+          <div id="tipsSection" class="mt-5 border-t border-gray-800 pt-4">
+            <h3 class="text-sm font-medium text-gray-200 mb-2 flex items-center gap-2">
+              <i data-feather="alert-triangle"></i> Consejos
+            </h3>
+            <ul id="safetyTips" class="list-disc list-inside text-gray-300 space-y-1"></ul>
+          </div>
+        </div>
+      </section>
+
+      <div id="errorBox" class="hidden mt-4 p-3 rounded border border-red-800 text-red-300 bg-red-950/30 text-sm"></div>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <!-- Config opcional de APIs -->
+  <script defer src="config.example.js"></script>
+  <script defer src="config.js" onerror="/* opcional */"></script>
+  <script src="components/back-button.js"></script>
+  <script defer src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => feather.replace());
+  </script>
+</body>
+</html>
+
+<!-- /style.css (paleta sobria, sin imágenes/gradientes) -->
+:root { --cyber-dark:#0b1020; --ink:#0f172a; --muted:#1f2937; --text:#e5e7eb; --sub:#9ca3af; --primary:#6366f1; --ok:#16a34a; --warn:#eab308; --bad:#ef4444; }
+* { box-sizing: border-box; }
+html, body { font-family:"Zalando Sans SemiExpanded", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial; }
+a:focus, button:focus, input:focus { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+body { color: var(--text); }
+.card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: .75rem; padding: 1rem; }
+.panel { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: .75rem; padding: 1rem; }
+
+.btn-primary { background: var(--primary); color: white; padding:.625rem 1rem; border-radius:.5rem; font-weight:600; }
+.btn-primary:hover { filter: brightness(0.95); }
+.btn-ghost { background: transparent; border:1px solid rgba(255,255,255,0.12); color: var(--text); padding:.625rem .9rem; border-radius:.5rem; }
+.btn-ghost:hover { background: rgba(255,255,255,0.06); }
+
+.input { flex-grow:1; padding:.75rem 1rem; border-radius:.5rem; border:1px solid rgba(255,255,255,0.12); background: transparent; color: var(--text); }
+.input::placeholder { color: var(--sub); }
+.hint { font-size:.85rem; color: var(--sub); }
+.label { font-size:.85rem; color: var(--sub); }
+.value { color: var(--text); }
+
+<!-- /components/navbar.js (minimalista) -->
+class CustomNavbar extends HTMLElement {
+  connectedCallback() {
+    const active = (this.getAttribute('active') || '').toLowerCase();
+    this.innerHTML = `
+      <header class="border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+          <a href="index.html" class="flex items-center gap-2 text-white font-semibold">
+            <i data-feather="cpu"></i>
+            <span>CyberLink Sentinel</span>
+          </a>
+          <nav class="flex items-center gap-6 text-sm">
+            <a href="index.html" class="${active==='inicio'?'text-indigo-400':'text-gray-300'}">Inicio</a>
+            <a href="verificador.html" class="${active==='verificador'?'text-indigo-400':'text-gray-300'}">Verificador</a>
+          </nav>
+        </div>
+      </header>
+    `;
+    if (window.feather) requestAnimationFrame(() => feather.replace());
+  }
+}
+customElements.define('custom-navbar', CustomNavbar);
+
+<!-- /components/footer.js (minimalista) -->
+class CustomFooter extends HTMLElement {
+  connectedCallback() {
+    const year = new Date().getFullYear();
+    this.innerHTML = `
+      <footer class="mt-auto border-t border-gray-800">
+        <div class="container mx-auto px-4 py-6 text-gray-500 text-sm flex justify-between">
+          <p>© ${year} CyberLink Sentinel</p>
+          <p><a href="index.html" class="hover:text-gray-300">Inicio</a> · <a href="verificador.html" class="hover:text-gray-300">Verificador</a></p>
+        </div>
+      </footer>
+    `;
+  }
+}
+customElements.define('custom-footer', CustomFooter);
+
+<!-- /components/back-button.js -->
+class BackButton extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <a href="index.html" class="inline-flex items-center gap-2 text-gray-300 hover:text-white">
+        <i data-feather="arrow-left"></i>
+        <span>Volver</span>
+      </a>
+    `;
+    if (window.feather) requestAnimationFrame(() => feather.replace());
+  }
+}
+customElements.define('back-button', BackButton);
+
+<!-- /config.example.js -->
+window.CLS_CONFIG = { reputationApiKey: "", reputationEndpoint: "" };
+
+<!-- /script.js (misma lógica, colores minimalistas en barra) -->
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('urlForm');
+  if (!form) return;
+
+  const urlInput = document.getElementById('urlInput');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const resultContainer = document.getElementById('resultContainer');
+  const riskBar = document.getElementById('riskBar');
+  const riskEmoji = document.getElementById('riskEmoji');
+  const checkedUrl = document.getElementById('checkedUrl');
+  const safetyStatus = document.getElementById('safetyStatus');
+  const safetyDetails = document.getElementById('safetyDetails');
+  const errorBox = document.getElementById('errorBox');
+  const tipsList = document.getElementById('safetyTips');
+  const openUrlBtn = document.getElementById('openUrlBtn');
+  const copyResultBtn = document.getElementById('copyResultBtn');
+
+  const normalize = (raw) => {
+    try {
+      if (!/^https?:\/\//i.test(raw)) raw = `https://${raw}`;
+      const u = new URL(raw);
+      return u.toString();
+    } catch { return null; }
+  };
+
+  const heuristicScore = (u) => {
+    let score = 0;
+    if (/^https:/.test(u)) score -= 5;
+    if (/\d{1,3}(\.\d{1,3}){3}/.test(u)) score += 35;
+    if (u.length > 60) score += 10;
+    if ((u.match(/\./g)||[]).length > 3) score += 10;
+    if (/[^\x00-\x7F]/.test(u)) score += 15;
+    if (/(login|secure|update|verify|free|prize)/i.test(u)) score += 10;
+    return Math.max(0, Math.min(100, score));
+  };
+
+  const statusFromScore = (s) => {
+    if (s < 25) return {label:'Bajo', cls:'bg-ok', emoji:'✅'};
+    if (s < 60) return {label:'Medio', cls:'bg-warn', emoji:'⚠️'};
+    return {label:'Alto', cls:'bg-bad', emoji:'🚫'};
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errorBox.classList.add('hidden');
+    safetyDetails.innerHTML = '';
+    tipsList.innerHTML = '';
+
+    const normalized = normalize(urlInput.value.trim());
+    if (!normalized) {
+      errorBox.textContent = 'URL inválida. Intenta nuevamente.';
+      errorBox.classList.remove('hidden');
+      resultContainer.classList.add('hidden');
+      return;
+    }
+
+    const score = heuristicScore(normalized);
+    const status = statusFromScore(score);
+
+    riskBar.style.width = `${score}%`;
+    riskBar.className = `h-2 rounded transition-all duration-500 ${status.cls}`;
+    riskEmoji.textContent = status.emoji;
+    checkedUrl.textContent = normalized;
+    safetyStatus.textContent = `${status.label} riesgo (${score}%)`;
+
+    const details = [
+      `Protocolo: ${normalized.startsWith('https:') ? 'HTTPS' : 'HTTP'}`,
+      `Longitud: ${normalized.length} caracteres`,
+      `Subdominios: ${(normalized.match(/\./g)||[]).length - 1}`,
+      `Unicode: ${/[^\x00-\x7F]/.test(normalized) ? 'sí' : 'no'}`
+    ];
+    details.forEach(d => {
+      const li = document.createElement('li'); li.textContent = d; safetyDetails.appendChild(li);
+    });
+
+    const tips = [
+      'Verifica dominio antes de credenciales.',
+      'Desconfía de urgencias/premios/descargas.',
+      ...(score >= 60 ? ['Usa entorno aislado si debes abrirlo.'] : []),
+      ...(score < 25 ? ['Aun con bajo riesgo, revisa certificado.'] : [])
+    ];
+    tips.forEach(t => {
+      const li = document.createElement('li'); li.textContent = t; tipsList.appendChild(li);
+    });
+
+    openUrlBtn.href = normalized;
+    resultContainer.classList.remove('hidden');
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    form.reset();
+    resultContainer.classList.add('hidden');
+    safetyDetails.innerHTML = '';
+    tipsList.innerHTML = '';
+    errorBox.classList.add('hidden');
+    riskBar.style.width = '0%';
+    riskEmoji.textContent = '';
+  });
+
+  copyResultBtn?.addEventListener('click', async () => {
+    const text = `URL: ${checkedUrl.textContent}\nEstado: ${safetyStatus.textContent}`;
+    try { await navigator.clipboard.writeText(text); copyResultBtn.textContent = 'Copiado'; setTimeout(()=>copyResultBtn.textContent='Copiar resultado', 1200); }
+    catch { alert('No se pudo copiar'); }
+  });
+});
+
+/* Utilidades de color (sin imágenes) */
+const style = document.createElement('style');
+style.textContent = `
+  .bg-ok{background:#16a34a}
+  .bg-warn{background:#eab308}
+  .bg-bad{background:#ef4444}
+`;
+document.head.appendChild(style);
